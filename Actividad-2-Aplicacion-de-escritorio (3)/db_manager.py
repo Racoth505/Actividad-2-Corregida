@@ -107,10 +107,6 @@ def initialize_database():
         ('admin', admin_pass_hash, 'admin', 'Administrador')
     )
 
-    # --- Example Subjects ---
-    cursor.execute("INSERT INTO Materias (nombre) VALUES (?)", ("Bases de Datos",))
-    cursor.execute("INSERT INTO Materias (nombre) VALUES (?)", ("Programación Web",))
-
     conn.commit()
     conn.close()
     print("Base de datos 'calificaciones.db' inicializada correctamente.")
