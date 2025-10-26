@@ -131,6 +131,13 @@ def validate_login(username, password):
     if user: return dict(user)
     return None
 
+
+def get_db():
+    return sqlite3.connect(DB_FILE)
+
+def sha256(txt:str) -> str:
+    return hashlib.sha256(txt.encode("utf-8")).hexdigest()
+
 def create_user(username, password, role, nombre_completo, apellidos, telefono, direccion, ruta_foto=None):
     """Creates a new user (Professor or Student). Returns the new user's ID or None."""
     pass_hash = hash_password(password)

@@ -179,7 +179,7 @@ def show_main_app(user_data):
             target_label.image = photo_tk # Guardar referencia
         except Exception as e:
             print(f"No se pudo recargar la imagen del header: {e}")
-
+    
 
     # --- RENDER UI BASED ON ROLE ---
     # Llama a la función constructora de la vista principal apropiada
