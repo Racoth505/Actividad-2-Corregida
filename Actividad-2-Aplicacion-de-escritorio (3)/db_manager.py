@@ -1,3 +1,4 @@
+
 # db_manager.py
 import sqlite3
 import os
@@ -622,4 +623,3 @@ def get_subjects_by_student(id_alumno):
     """, (id_alumno,))
     materias = cursor.fetchall()
     conn.close()
-    return [dict(m) for m in materias]
