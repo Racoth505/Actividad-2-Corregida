@@ -144,24 +144,23 @@ def create_admin_main_view(root, user_data, logout_func):
     ]
 
     # Separador inicial (controlará su visibilidad)
-    separator = tk.Frame(nav_frame, bg="white", width=2, height=25)
-
     for i, (view_name, text, icon_key) in enumerate(buttons_info):
         icon = icons.get(icon_key)
-        btn = ttk.Button(nav_frame, text=text, style="Sidebar.TButton",
-                         image=icon, compound=tk.LEFT, # Mostrar ícono
-                         command=lambda v=view_name: show_admin_view(content_frame, user_data, v))
+        btn = ttk.Button(
+            nav_frame,
+            text=text,
+            style="Sidebar.TButton",
+            image=icon,
+            compound=tk.LEFT,
+            command=lambda v=view_name: show_admin_view(content_frame, user_data, v)
+        )
 
-        # Place separator ONLY next to the selected button
-        if i == 0: # Default selected is "add_user"
-            separator.grid(row=i, column=0, sticky="ns", padx=(5, 5), pady=5)
-            btn.grid(row=i, column=1, sticky="ew", pady=5)
-            btn.state(['selected']) # Marcar como seleccionado
-        else:
-            # Place other buttons, spanning columns
-            btn.grid(row=i, column=0, columnspan=2, sticky="ew", pady=5, padx=(0,0)) # Usar padx=0 aquí
+        # Sin el separador blanco
+        btn.grid(row=i, column=0, columnspan=2, sticky="ew", pady=5)
+        if i == 0:
+            btn.state(['selected'])  # Marcar como seleccionado al inicio
 
-        _nav_buttons[view_name] = btn # Guardar referencia
+        _nav_buttons[view_name] = btn
 
     # --- Botón Salir (Abajo) ---
     bottom_frame = tk.Frame(sidebar_frame, bg="#28a745")
