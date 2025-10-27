@@ -7,7 +7,7 @@ from PIL import Image, ImageTk
 
 # --- Managers and Styles ---
 import db_manager
-from app_styles import configure_styles
+#from app_styles import configure_styles -- No se utiliza para permitir al sistema hacer los cambios necesarios
 
 # --- VISTAS PRINCIPALES POR ROL ---
 from admin_main_view import create_admin_main_view # Vista Admin con Sidebar
@@ -54,7 +54,7 @@ def show_login_page():
         root = tk.Tk()
         root.withdraw() # Ocultarla inicialmente
         root.configure(bg="#f0f2f5")
-        configure_styles() # Aplicar estilos una vez
+        #configure_styles() No se utiliza para permitir al sistema hacer los cambios necesarios
 
     # Limpiar cualquier widget residual (por si se hizo logout)
     for widget in root.winfo_children():
@@ -200,7 +200,7 @@ if __name__ == "__main__":
         root = tk.Tk()
         root.withdraw() # Ocultar hasta que login esté listo
         root.configure(bg="#f0f2f5")
-        configure_styles() # Configurar estilos una vez
+       # configure_styles() no se utiliza para permitir al sistema hacer los cambios necesarios
 
     show_login_page() # Mostrar login
 
